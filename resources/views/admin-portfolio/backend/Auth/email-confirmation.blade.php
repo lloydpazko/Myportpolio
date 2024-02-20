@@ -87,7 +87,7 @@
               <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('admincss/assets/img/illustrations/illustration-signup.jpg'); background-size: cover;">
               </div>
             </div>
-            @include('_messages')
+
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
               <div class="card card-plain">
                 <div class="card-header">
@@ -95,10 +95,11 @@
                   <p class="mb-0">Enter your email so we can fix your problem by sending link on your personal email</p>
                 </div>
                 <div class="card-body">
+                    @include('_messages')
                   <form action="{{ url('email-confirmation') }}" method="post" role="form">
                     {{ csrf_field() }}
                     <div class="input-group input-group-outline mb-3">
-                        <input type="email" class="form-control" placeholder="Email Adress" value="{{ old('email') }}" required>
+                        <input type="email" name="email" class="form-control" placeholder="Email Adress" value="{{ old('email') }}" required>
                         <span style="color: red;">{{ $errors->first('email') }}</span>
                       </div>
                     <div class="form-check form-check-info text-start ps-0">

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -9,6 +8,7 @@ use Hash;
 use Session;
 use Auth;
 use Mail;
+use App\Mail\ForgotPasswordMail;
 
 
 class AuthController extends Controller
@@ -50,7 +50,7 @@ class AuthController extends Controller
     }
     public function email_confirmation(Request $request)
     {
-        $random_password = rand(11111111111 , 999999999);
+        $random_password = rand(1111111111 , 9999999999);
         $user = User::where('email', '=', $request->email)->first();
         if(!empty($user)){
             $user->password = Hash::make($random_password);
@@ -60,12 +60,9 @@ class AuthController extends Controller
 
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
 
-            return redirect()->back()->with('succes', 'Password Successfully Send to Your Email box. please check your email box');
-        }
-        else
-        {
-              return redirect()->back()->with('error', 'Email Id not Found!');
+            return redirect()->back()->with('success', 'password successfully send to your email box please check email box!');
+        }else{
+                return redirect()->back()->with('error', 'email id not found!');
         }
     }
 }
-
