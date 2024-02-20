@@ -121,6 +121,7 @@
                   </p>
                   @include('_messages')
                 </form>
+            </div>
               </div>
             </div>
           </div>

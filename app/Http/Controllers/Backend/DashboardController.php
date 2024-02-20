@@ -15,4 +15,8 @@ class DashboardController extends Controller
     {
         return view('admin-portfolio.backend.dashboard.table-detail');
     }
+    public function create(request $request)
+    {
+        return view('admin-portfolio.backend.dashboard.create-about');
+    }
 }
