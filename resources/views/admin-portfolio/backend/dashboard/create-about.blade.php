@@ -68,27 +68,28 @@
         </nav>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">About Me</h6>
+                <h6 class="text-white text-capitalize ps-3">About You Personal</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <div class="card-body px-4 pb-2">
                         <div class="container">
                             <div class="contact-content">
                                 <div class="row">
-                                    <div class="col-md-offset-1 col-md-5 col-sm-6">
+                                    <div class="col-md-offset-2 col-md-12 col-sm-10">
                                         <div class="single-contact-box">
                                             <div class="contact-form">
-                                                <form>
+                                                @include('_messages')
+                                                <form action="{{ url('admin/create-about-post') }}" method="post" enctype="multipart/form-data" >
+                                                    {{ csrf_field() }}
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
@@ -99,7 +100,7 @@
                                                         </div><!--/.col-->
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <div class="input-group input-group-outline my-3">
+                                                                <div class="input-group input-group-outline my-3 ">
                                                                     <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                                                                 </div>
                                                             </div><!--/.form-group-->
@@ -109,7 +110,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="Phone" name="Phone number">
+                                                                <input type="text" class="form-control" id="subject" placeholder="Phone" name="phone">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -127,18 +128,39 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                             <div class="input-group input-group-outline my-3">
-                                                                <textarea class="form-control" rows="8" id="comment" placeholder="Decription" ></textarea>
+                                                                <textarea class="form-control" rows="10" id="comment" placeholder="Decription" name="description" ></textarea>
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
                                                 </div><!--/.row-->
+
+
                                                 <div class="row">
                                                     <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                                <div class="input-group input-group-outline my-3">
+                                                                    <label class="col-sm-3 col-form-label">Profile Images</label>
+                                                                <input type="file" class="form-control" id="subject" placeholder="profile" name="profile">
+                                                            </div>
+                                                        </div><!--/.form-group-->
+                                                    </div><!--/.col-->
+                                                </div><!--/.row-->
+                                            {{-- <div class="card-footer"> --}}
+                                                <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="single-contact-btn">
+                                                        <button class="btn bg-gradient-primary" href="#" role="button">Create About</button>
+                                                    </div> <!--/.single-single-contact-btn-->
+                                                </div><!--/.col-->
+                                            </div><!--/.row-->
+                                                {{-- <div class="row">
+                                                    <div class="col-sm-12">
                                                         <div class="single-contact-btn">
-                                                    <button class="btn bg-gradient-primary" href="#" role="button">Create About</button>
-                                                </div> <!--/.single-single-contact-btn-->
-                                            </div><!--/.col-->
-                                        </div><!--/.row-->
+                                                            <button class="btn btn-default float-right" href="#" role="button">Cancel</button>
+                                                        </div> <!--/.single-single-contact-btn-->
+                                                </div><!--/.col-->
+                                            </div><!--/.row--> --}}
+                                        {{-- </div> --}}
                                     </form><!--/form-->
                                 </div><!--/.contact-form-->
                             </div><!--/.single-contact-box-->

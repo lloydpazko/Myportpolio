@@ -95,29 +95,28 @@
                   </thead>
                   <tbody>
                     <tr>
+
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
                             <img src="{{ asset('admincss/assets/img/team-2.jpg') }}" class="avatar avatar-sm me-3 border-radius-lg" alt="user5">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Richard Gran</h6>
-                            <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p>
+                            <h6 class="mb-0 text-sm"></h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Executive</p>
+                        <p class="text-xs font-weight-bold mb-0"></p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span>Offline</span>
+                        <span></span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
+                        <span class="text-secondary text-xs font-weight-bold"></span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">www.facebook.com/MirosoftLP23</span>
+                        <span class="text-secondary text-xs font-weight-bold"></span>
                       </td>
                       <td class="align-middle">
                         <a href="{{ url('admin/create-about') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

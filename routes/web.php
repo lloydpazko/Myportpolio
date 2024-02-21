@@ -28,6 +28,7 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/table-details', [DashboardController::class, 'tables']);
     Route::get('admin/create-about', [DashboardController::class, 'create']);
+    Route::post('admin/create-about-post', [DashboardController::class, 'store']);
     // Route::post('/', [DashboardController::class, 'logout']);
 
 });
