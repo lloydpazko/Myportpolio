@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\About;
 use Str;
 use Session;
+use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
@@ -14,9 +15,10 @@ class DashboardController extends Controller
     {
         return view('admin-portfolio.backend.dashboard.list');
     }
-    public function tables(request $request)
+    public function tables(request $request): View
     {
-        return view('admin-portfolio.backend.dashboard.table-detail');
+        $data ['getrecord'] = About::all();
+        return view('admin-portfolio.backend.dashboard.table-detail', $data);
     }
     public function create(request $request)
     {

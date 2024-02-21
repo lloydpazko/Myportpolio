@@ -95,28 +95,30 @@
                   </thead>
                   <tbody>
                     <tr>
-
+                        @foreach($getrecord as $getrecord)
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="{{ asset('admincss/assets/img/team-2.jpg') }}" class="avatar avatar-sm me-3 border-radius-lg" alt="user5">
+                            @if($getrecord->profile)
+                            <img src="{{ asset('admincss/assets/img/' .$getrecord->profile) }} " class="avatar avatar-sm me-3 border-radius-lg" alt="user5">
+                            @endif
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"></h6>
+                            <h6 class="mb-0 text-sm">{{ $getrecord->position }}</h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"></p>
+                        <p class="text-xs font-weight-bold mb-0">{{ $getrecord->description }}</p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span></span>
+                        <span>{{ $getrecord->phone }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold"></span>
+                        <span class="text-secondary text-xs font-weight-bold">{{ $getrecord->email }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold"></span>
+                        <span class="text-secondary text-xs font-weight-bold">{{ $getrecord->website }}</span>
                       </td>
                       <td class="align-middle">
                         <a href="{{ url('admin/create-about') }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
@@ -135,6 +137,7 @@
                       </td>
                     </tr>
                   </tbody>
+                  @endforeach
                 </table>
               </div>
             </div>
