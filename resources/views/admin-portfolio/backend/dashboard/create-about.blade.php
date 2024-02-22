@@ -94,7 +94,7 @@
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                    <input type="text" class="form-control" id="name" placeholder="position" name="position">
+                                                                    <input type="text" class="form-control" id="position" placeholder="position" name="position">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -147,12 +147,12 @@
                                                 </div><!--/.row-->
                                             {{-- <div class="card-footer"> --}}
                                                 <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="single-contact-btn">
-                                                        <button class="btn bg-gradient-primary" href="#" role="button">Create About</button>
-                                                    </div> <!--/.single-single-contact-btn-->
-                                                </div><!--/.col-->
-                                            </div><!--/.row-->
+                                                    <div class="col-sm-12">
+                                                        <div class="single-contact-btn">
+                                                    <button type="submit" class="btn bg-gradient-primary" name="update" id="update" role="button">Add About</button>
+                                                </div> <!--/.single-single-contact-btn-->
+                                            </div><!--/.col-->
+                                        </div><!--/ul--><!--/.row-->
                                                 {{-- <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="single-contact-btn">
