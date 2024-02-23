@@ -35,6 +35,9 @@ Route::group(['middleware' => 'admin'], function(){
     Route::delete('admin/about-delete', [DashboardController::class, 'destroy_about']);
     // Route::post('/', [DashboardController::class, 'logout']);
 
+    Route::get('admin/exprience', [DashboardController::class, 'index_experience']);
+    Route::post('admin/create-exprience', [DashboardController::class, 'create_experience']);
+
 });
 
 Route::get('/', [HomeController::class, 'index']);

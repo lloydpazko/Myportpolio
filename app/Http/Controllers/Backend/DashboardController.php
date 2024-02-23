@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\Experience;
 use Str;
 use Session;
 use Illuminate\View\View;
@@ -18,7 +19,8 @@ class DashboardController extends Controller
     public function tables(request $request): View
     {
         $data ['getrecord'] = About::all();
-        return view('admin-portfolio.backend.dashboard.table-detail', $data);
+        $data2 ['getrecord2'] = Experience::all();
+        return view('admin-portfolio.backend.dashboard.table-detail', $data , $data2);
     }
     public function create(request $request)
     {
@@ -87,5 +89,22 @@ class DashboardController extends Controller
     {
         $data ['getrecord'] = About::all();
         return view('admin-portfolio.backend.dashboard.edit-about', $data);
+    }
+    public function index_experience()
+    {
+        return view('admin-portfolio.backend.dashboard.create-experience');
+    }
+    public function create_experience(request $request)
+    {
+        $insertrecordsExp = new Experience;
+        $insertrecordsExp->campany = trim($request->campany);
+        $insertrecordsExp->position_designation = trim($request->position_designation);
+        $insertrecordsExp->year = trim($request->year);
+        $insertrecordsExp->address = trim($request->address);
+        $insertrecordsExp->description = trim($request->description);
+
+        $insertrecordsExp->Save();
+
+        return redirect()->back()->with('success', "Your Experience was Added successfully");
     }
 }
