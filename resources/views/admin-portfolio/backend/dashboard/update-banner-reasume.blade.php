@@ -88,20 +88,20 @@
                                         <div class="single-contact-box">
                                             <div class="contact-form">
                                                 @include('_messages')
-                                                <form action="{{ url('admin/create-education') }}" method="post" enctype="multipart/form-data" >
+                                                <form action="{{ url('admin/create-about-post') }}" method="post" enctype="multipart/form-data" >
                                                     {{ csrf_field() }}
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                    <input type="text" class="form-control" id="position" placeholder="year" name="year">
+                                                                    <input type="text" class="form-control" id="position" placeholder="position" name="position">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3 ">
-                                                                    <input type="text" class="form-control" id="course" placeholder="course" name="course">
+                                                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -110,7 +110,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="school" name="school">
+                                                                <input type="text" class="form-control" id="subject" placeholder="Phone" name="phone">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -119,7 +119,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="address" name="address">
+                                                                <input type="text" class="form-control" id="subject" placeholder="website" name="website">
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
@@ -133,6 +133,19 @@
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
                                                 </div><!--/.row-->
+
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                                <div class="input-group input-group-outline my-3">
+                                                                    <label class="col-sm-3 col-form-label">Profile Images</label>
+                                                                <input type="file" class="form-control" id="subject" placeholder="profile" name="profile">
+                                                            </div>
+                                                        </div><!--/.form-group-->
+                                                    </div><!--/.col-->
+                                                </div><!--/.row-->
+                                            {{-- <div class="card-footer"> --}}
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="single-contact-btn">

@@ -37,6 +37,8 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::get('admin/exprience', [DashboardController::class, 'index_experience']);
     Route::post('admin/create-exprience', [DashboardController::class, 'create_experience']);
+    Route::get('admin/education', [DashboardController::class, 'education']);
+    Route::post('admin/create-education', [DashboardController::class, 'create_education']);
 
 });
 

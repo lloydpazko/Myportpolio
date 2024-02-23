@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Experience;
+use App\Models\Skill;
+use App\Models\education;
 use Str;
 use Session;
 use Illuminate\View\View;
@@ -19,8 +21,10 @@ class DashboardController extends Controller
     public function tables(request $request): View
     {
         $data ['getrecord'] = About::all();
-        $data2 ['getrecord2'] = Experience::all();
-        return view('admin-portfolio.backend.dashboard.table-detail', $data , $data2);
+        $data ['getrecord2'] = Experience::all();
+        // $data3 ['getrecord3'] = Skill::all();
+        $data ['getrecord4']= education::all();
+        return view('admin-portfolio.backend.dashboard.table-detail', $data);
     }
     public function create(request $request)
     {
@@ -107,4 +111,22 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', "Your Experience was Added successfully");
     }
+    public function education()
+    {
+        return view('admin-portfolio.backend.dashboard.create-education');
+    }
+    public function create_education(request $request)
+    {
+        $insertrecordsEdu = new education;
+        $insertrecordsEdu->year = trim($request->year);
+        $insertrecordsEdu->course = trim($request->course);
+        $insertrecordsEdu->school = trim($request->school);
+        $insertrecordsEdu->address = trim($request->address);
+        $insertrecordsEdu->description = trim($request->description);
+
+        $insertrecordsEdu->Save();
+
+        return redirect()->back()->with('success', "Your School history was Added successfully");
+    }
+
 }
