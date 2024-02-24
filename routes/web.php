@@ -35,10 +35,27 @@ Route::group(['middleware' => 'admin'], function(){
     Route::delete('admin/about-delete', [DashboardController::class, 'destroy_about']);
     // Route::post('/', [DashboardController::class, 'logout']);
 
+    // Experience pages
     Route::get('admin/exprience', [DashboardController::class, 'index_experience']);
+
     Route::post('admin/create-exprience', [DashboardController::class, 'create_experience']);
+
+    // end Experience pages
+
+
     Route::get('admin/education', [DashboardController::class, 'education']);
     Route::post('admin/create-education', [DashboardController::class, 'create_education']);
+
+    // Skill pages Create and edit pages
+    Route::get('admin/create-skill', [DashboardController::class, 'create_skill']);
+
+    Route::post('admin/create-skill-store', [DashboardController::class, 'create_skill_store']);
+
+    Route::get('admin/edit-skill/{id}', [DashboardController::class, 'edit_skill']);
+
+    Route::put('admin/update-skill/{id}', [DashboardController::class, 'update_skill']);
+
+    // end function for skills pages
 
 });
 

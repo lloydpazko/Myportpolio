@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Experience;
@@ -22,7 +23,7 @@ class DashboardController extends Controller
     {
         $data ['getrecord'] = About::all();
         $data ['getrecord2'] = Experience::all();
-        // $data3 ['getrecord3'] = Skill::all();
+        $data ['getrecord3'] = Skill::all();
         $data ['getrecord4']= education::all();
         return view('admin-portfolio.backend.dashboard.table-detail', $data);
     }
@@ -128,5 +129,57 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', "Your School history was Added successfully");
     }
+    public function create_skill_store(request $request)
+    {
+        $insertrecordskill = new Skill;
+        $insertrecordskill->name = trim($request->name);
+        $insertrecordskill->percentage = trim($request->percentage);
+        $insertrecordskill->save();
 
-}
+        return redirect()->back()->with('success', "Your skill history was Added successfully");
+    }
+    public function create_skill(request $request)
+    {
+        return view('admin-portfolio.backend.dashboard.create-skills');
+    }
+    public function edit_skill(request $request ,$id)
+    {
+        $data = Skill::find($id);
+        return view('admin-portfolio.backend.dashboard.edit-skills', compact('data'));
+    }
+    public function update_skill(request $request , $id)
+    {
+        if($request->update = "update"){
+            $editRecord = request()->validate(['name' => 'request']);
+            $editRecord = request()->validate(['percentage' => 'request']);
+            $editRecord = new Skill;
+        }else{
+            $editRecord = Skill::find($request->id);
+            $editRecord->name = trim($request->name);
+            $editRecord->percentage = trim($request->percentage);
+            $editRecord->save();
+            return redirect()->back()->with('success', "Your skill history was Added successfully");
+        }
+    }
+    // public function update_skill(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'name' => ['required','string','max:255'],
+    //         'percentage' => ['required','string','max:255'],
+
+    //     ]);
+    //     $product = Skill::find($id);
+    //     $product -> name = $request->name;
+    //     $product -> percentage = $request->percentage;
+    //     $product -> save();
+
+    //     return redirect()->back()->with('success', "Your skill has beed updated successfully");
+    // }
+
+    // public function destroy(Product_model $product, $id)
+    // {
+    //     $product = Product_model::find($id);
+    //     $product->delete();
+    //     return redirect()->route('ProductList.index');
+    // }
+    }

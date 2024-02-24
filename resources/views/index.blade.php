@@ -45,29 +45,17 @@
 								<div class="about-list-icon">
 									<ul>
 										<li>
-											<a href="#">
+											<a href="https://www.facebook.com/MicrosoftLP2024/">
 												<i  class="fa fa-facebook" aria-hidden="true"></i>
 											</a>
 										</li><!-- / li -->
 										<li>
-											<a href="#">
-												<i  class="fa fa-dribbble" aria-hidden="true"></i>
-											</a>
-
-										</li><!-- / li -->
-										<li>
-											<a href="#">
-												<i  class="fa fa-twitter" aria-hidden="true"></i>
-											</a>
-
-										</li><!-- / li -->
-										<li>
-											<a href="#">
+											<a href="https://www.linkedin.com/in/lloydpaliuanan/">
 												<i  class="fa fa-linkedin" aria-hidden="true"></i>
 											</a>
 										</li><!-- / li -->
 										<li>
-											<a href="#">
+											<a href="https://www.instagram.com/lloydpazko/">
 												<i  class="fa fa-instagram" aria-hidden="true"></i>
 											</a>
 										</li><!-- / li -->
@@ -75,9 +63,7 @@
 
 									</ul><!-- / ul -->
 								</div><!-- /.about-list-icon -->
-
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -131,104 +117,23 @@
 					</div>
 					<div class="container">
 						<div class="row">
+                            @foreach($getrecord3 as $getrecord3)
 							<div class="col-md-6">
 								<div class="single-skill-content">
 									<div class="barWrapper">
-										<span class="progressText">adobe photoshop</span>
+										<span class="progressText">{{ $getrecord3->name }}</span>
 										<div class="single-progress-txt">
 											<div class="progress ">
-												<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
+												<div class="progress-bar" role="progressbar" aria-valuenow="{{ $getrecord3->percentage }}" aria-valuemin="10" aria-valuemax="{{ $getrecord3->percentage }}" style="">
 
 												</div>
 											</div>
-											<h3>90%</h3>
+											<h3>{{ $getrecord3->percentage }}%</h3>
 										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">adobe illustrator</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100" style="">
-
-											   </div>
-											</div>
-											<h3>85%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">adobe after effects</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100" style="">
-
-											   </div>
-											</div>
-											<h3>97%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">sketch</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-
-											   </div>
-											</div>
-											<h3>90%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="single-skill-content">
-									<div class="barWrapper">
-										<span class="progressText">html 5</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-												<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-
-												</div>
-											</div>
-											<h3>90%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">css 3 animation</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100" style="">
-
-											   </div>
-											</div>
-											<h3>85%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">communication</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100" style="">
-
-											   </div>
-											</div>
-											<h3>97%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText"> creativity</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100" style="">
-
-											   </div>
-											</div>
-											<h3>90%</h3>
-										</div>
-									</div><!-- /.barWrapper -->
-								</div>
-							</div>
-						</div><!-- /.row -->
-					</div>	<!-- /.container -->
+						</div>@endforeach<!-- /.row -->
+					</div><!-- /.container -->
 				</div><!-- /.skill-content-->
 
 		</section><!--/.skills-->
@@ -590,25 +495,23 @@
 									<div class="contact-add-info">
 										<div class="single-contact-add-info">
 											<h3>phone</h3>
-											<p>987-123-6547</p>
+											<p>{{ $getrecord[0]->phone }}</p>
 										</div>
 										<div class="single-contact-add-info">
 											<h3>email</h3>
-											<p>browny@info.com</p>
+											<p>{{ $getrecord[0]->email }}</p>
 										</div>
 										<div class="single-contact-add-info">
 											<h3>website</h3>
-											<p>www.brownsine.com</p>
+											<p>{{ $getrecord[0]->website }}</p>
 										</div>
 									</div>
 								</div><!--/.contact-adress-->
 								<div class="hm-foot-icon">
 									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li><!--/li-->
-										<li><a href="#"><i class="fa fa-dribbble"></i></a></li><!--/li-->
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li><!--/li-->
-										<li><a href="#"><i class="fa fa-linkedin"></i></a></li><!--/li-->
-										<li><a href="#"><i class="fa fa-instagram"></i></a></li><!--/li-->
+										<li><a href="https://www.facebook.com/MicrosoftLP2024/"><i class="fa fa-facebook"></i></a></li><!--/li-->
+										<li><a href="https://www.linkedin.com/in/lloydpaliuanan/"><i class="fa fa-linkedin"></i></a></li><!--/li-->
+										<li><a href="https://www.instagram.com/lloydpazko/"><i class="fa fa-instagram"></i></a></li><!--/li-->
 									</ul><!--/ul-->
 								</div><!--/.hm-foot-icon-->
 							</div><!--/.single-contact-box-->
