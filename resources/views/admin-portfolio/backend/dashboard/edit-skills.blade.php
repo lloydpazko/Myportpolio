@@ -88,8 +88,9 @@
                                         <div class="single-contact-box">
                                             <div class="contact-form">
                                                 @include('_messages')
-                                                <form action="{{ url('admin/update-skill' . $data->id) }}" method="PUT" enctype="multipart/form-data" >
+                                                <form action="{{ url('admin/update-skill/' . $data->id) }}" method="post" >
                                                     {{ csrf_field() }}
+                                                    @method('put')
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
@@ -101,7 +102,7 @@
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3 ">
-                                                                    <input type="text" class="form-control" id="percentage" placeholder="Percentage" value="{{ $data->percentage }}"name="percentage">
+                                                                    <input type="text" class="form-control" id="percentage" placeholder="Percentage" value="{{ $data->percentage }}" name="percentage">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -109,7 +110,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="single-contact-btn">
-                                                    <button type="submit" class="btn bg-gradient-primary" name="update" role="button">edit Skill</button>
+                                                    <button type="submit" class="btn bg-gradient-primary" name="update_skills" value="update_skills" role="button">edit Skill</button>
                                                 </div> <!--/.single-single-contact-btn-->
                                             </div><!--/.col-->
                                         </div><!--/ul--><!--/.row-->

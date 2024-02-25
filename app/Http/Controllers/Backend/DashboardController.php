@@ -31,16 +31,9 @@ class DashboardController extends Controller
     {
         return view('admin-portfolio.backend.dashboard.create-about');
     }
-    public function store(request $request)
+    public function edit_about_store(request $request)
     {
-        // dd($request->all());
-        if($request->update == "add"){
-            $insertRecord = request()->validate(['profile' => 'required']);
-            $insertRecord = new About;
-        }else{
-            $insertRecord = About::find($request->id);
-        }
-        // $insertRecord = new About;
+        $insertRecord = new About;
         $insertRecord->position = trim($request->position);
         $insertRecord->description = trim($request->description);
         $insertRecord->phone = trim($request->phone);
@@ -48,11 +41,6 @@ class DashboardController extends Controller
         $insertRecord->website = trim($request->website);
 
         if(!empty($request->file('profile'))){
-
-            if(!empty($insertRecord->profile) && file_exists('admincss/assets/img'. $insertRecord->profile))
-            {
-                unlink('admincss/assets/img'. $insertRecord->profile);
-            }
            $file        = $request->file('profile');
            $randomStr   = Str::random(30);
            $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
@@ -62,38 +50,37 @@ class DashboardController extends Controller
         $insertRecord->save();
 
         return redirect()->back()->with('success', "Your about was saved successfully");
-
-        // sample codes for next creations
-
-        // $insertRecord = new About;
-        // $insertRecord->position = trim($request->position);
-        // $insertRecord->description = trim($request->description);
-        // $insertRecord->phone = trim($request->phone);
-        // $insertRecord->email = trim($request->email);
-        // $insertRecord->website = trim($request->website);
-
-        // if(!empty($request->file('profile'))){
-        //    $file        = $request->file('profile');
-        //    $randomStr   = Str::random(30);
-        //    $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
-        //    $file->move('admincss/assets/img', $filename);
-        //    $insertRecord->profile = $filename;
-        // }
-        // $insertRecord->save();
-
-        // return redirect()->back()->with('success', "Your about was saved successfully");
     }
-    // public function destroy_about(About $data, $id)
-    // {
-    //     $data = About::destroy('$id');
-    //     $data = delete();
-
-    //     return redirect('admin-portfolio.backend.dashboard.table-detail')->with('success', 'youre about details you given was deleted successfully!');
-    // }
     public function edit_about(request $request)
     {
-        $data ['getrecord'] = About::all();
-        return view('admin-portfolio.backend.dashboard.edit-about', $data);
+        $data2 = About::find($request->id);
+        return view('admin-portfolio.backend.dashboard.edit-about', compact('data2'));
+    }
+    public function edit_about_update(request $request, $id)
+    {
+            $insertRecord = About::find($id);
+
+            $insertRecord->position = $request->position;
+            $insertRecord->description = $request->description;
+            $insertRecord->phone = $request->phone;
+            $insertRecord->email = $request->email;
+            $insertRecord->website = $request->website;
+
+            if(!empty($request->file('profile'))){
+
+                if(!empty($insertRecord->profile) && file_exists('admincss/assets/img'. $insertRecord->profile))
+                {
+                    unlink('admincss/assets/img'. $insertRecord->profile);
+                }
+            $file        = $request->file('profile');
+            $randomStr   = Str::random(30);
+            $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
+            $file->move('admincss/assets/img', $filename);
+            $insertRecord->profile = $filename;
+            }
+            $insertRecord->update();
+        return redirect()->back()->with('success', "Your about was saved successfully");
+
     }
     public function index_experience()
     {
@@ -149,37 +136,27 @@ class DashboardController extends Controller
     }
     public function update_skill(request $request , $id)
     {
-        if($request->update = "update"){
-            $editRecord = request()->validate(['name' => 'request']);
-            $editRecord = request()->validate(['percentage' => 'request']);
-            $editRecord = new Skill;
-        }else{
-            $editRecord = Skill::find($request->id);
-            $editRecord->name = trim($request->name);
-            $editRecord->percentage = trim($request->percentage);
-            $editRecord->save();
-            return redirect()->back()->with('success', "Your skill history was Added successfully");
-        }
+        $update_data = Skill::find($id);
+        $update_data->name = $request->name;
+        $update_data->percentage = $request->percentage;
+        $update_data->update();
+        return redirect()->back()->with('success', "Your skill history was updated successfully");
     }
-    // public function update_skill(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'name' => ['required','string','max:255'],
-    //         'percentage' => ['required','string','max:255'],
-
-    //     ]);
-    //     $product = Skill::find($id);
-    //     $product -> name = $request->name;
-    //     $product -> percentage = $request->percentage;
-    //     $product -> save();
-
-    //     return redirect()->back()->with('success', "Your skill has beed updated successfully");
-    // }
-
-    // public function destroy(Product_model $product, $id)
-    // {
-    //     $product = Product_model::find($id);
-    //     $product->delete();
-    //     return redirect()->route('ProductList.index');
-    // }
+    public function edit_experience(request $request, $id)
+    {
+        // $data3 = Experience::find($id);
+        // return view('admin-portfolio.backend.dashboard.edit-exprience', compact('data3'));
     }
+    public function edit_update_exp(request $request, $id)
+    {
+        $update_exp = Experience::find($id);
+        $update_exp->campany = $request->campany;
+        $update_exp->position_designation = $request->position_designation;
+        $update_exp->year = $request->year;
+        $update_exp->address = $request->address;
+        $update_exp->description = $request->description;
+        $update_exp->update();
+
+        return redirect()->back()->with('success', "Your Experience was updated successfully");
+    }
+}

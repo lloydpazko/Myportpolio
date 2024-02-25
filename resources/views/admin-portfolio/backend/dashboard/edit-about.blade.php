@@ -93,8 +93,9 @@
                                                     <a class="btn bg-gradient-primary" href="{{ url('admin/create-about') }}" role="button">Create About</a>
                                                 </div>
                                                 @include('_messages')
-                                                <form action="{{ url('admin/create-about-post') }}" method="post" enctype="multipart/form-data">
+                                                <form action="{{ url('admin/edit-about-details-update/'. $data2->id) }}" method="post" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
+                                                    @method('put')
                                                     <div class="row">
 
                                                         <div class="row">
@@ -103,8 +104,8 @@
                                                                 <div class="form-group">
                                                                         <div class="input-group input-group-outline my-3">
                                                                         <input type="file" class="form-control" id="subject" placeholder="website" name="profile">
-                                                                        @if(@$getrecord[0]->profile)
-                                                                            <img src="{{ url('admincss/assets/img/'.@$getrecord[0]->profile) }}" width="300" height="300" />
+                                                                        @if(@$data2->profile)
+                                                                            <img src="{{ url('admincss/assets/img/'.@$data2->profile) }}" width="300" height="300" />
                                                                             @endif
                                                                     </div>
                                                                 </div><!--/.form-group-->
@@ -113,14 +114,14 @@
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                    <input type="text" class="form-control" id="name" placeholder="position" value="{{ @$getrecord[0]->position }}" name="position">
+                                                                    <input type="text" class="form-control" id="name" placeholder="position" value="{{ @$data2->position }}" name="position">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3 ">
-                                                                    <input type="email" class="form-control" id="email" placeholder="Email" value="{{ @$getrecord[0]->email }}" name="email">
+                                                                    <input type="email" class="form-control" id="email" placeholder="Email" value="{{ @$data2->email }}" name="email">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -129,7 +130,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="Phone" value="{{ @$getrecord[0]->phone }}" name="phone">
+                                                                <input type="text" class="form-control" id="subject" placeholder="Phone" value="{{ @$data2->phone }}" name="phone">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -138,7 +139,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="website" value="{{ @$getrecord[0]->website }}" name="website">
+                                                                <input type="text" class="form-control" id="subject" placeholder="website" value="{{ @$data2->website }}" name="website">
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
@@ -147,7 +148,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                             <div class="input-group input-group-outline my-3">
-                                                                <textarea class="form-control" rows="10" id="comment" placeholder="Decription" name="description" >{{ @$getrecord[0]->description }}</textarea>
+                                                                <textarea class="form-control" rows="10" id="comment" placeholder="Decription" name="description" >{{ @$data2->description }}</textarea>
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
@@ -156,11 +157,13 @@
                                                 <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="single-contact-btn">
-                                                        <button type="submit" class="btn bg-gradient-primary" name="update" id="update" value="@if(count($getrecord)>0)Edit @else @endif" role="button">Update About</button>
+                                                        {{-- <button type="submit" class="btn bg-gradient-primary" name="update" id="update" value="@if(count($getrecord)>0)Edit @else @endif" role="button">Update About</button> --}}
+
+                                                        <button type="submit" class="btn bg-gradient-primary" name="update" value="update" id="update" role="button">Update About</button>
                                                     </div> <!--/.single-single-contact-btn-->
                                                 </div><!--/.col-->
                                             </div><!--/ul-->
-                                            <input type="hidden" name="id" value="{{ @$getrecord[0]->id }}">
+                                            {{-- <input type="hidden" name="id" value="{{ @$getrecord[0]->id }}"> --}}
                                     </form><!--/form-->
                                 </div><!--/.contact-form-->
                             </div><!--/.single-contact-box-->

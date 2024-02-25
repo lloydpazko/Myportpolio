@@ -68,39 +68,41 @@
         </nav>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">About Me</h6>
+                <h6 class="text-white text-capitalize ps-3">About You Personal</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <div class="card-body px-4 pb-2">
                         <div class="container">
                             <div class="contact-content">
                                 <div class="row">
-                                    <div class="col-md-offset-1 col-md-5 col-sm-6">
+                                    <div class="col-md-offset-2 col-md-12 col-sm-10">
                                         <div class="single-contact-box">
                                             <div class="contact-form">
-                                                <form>
+                                                @include('_messages')
+                                                <form action="{{ url('admin/edit-experience-update/' . $data3->id) }}" method="post" enctype="multipart/form-data" >
+                                                    {{ csrf_field() }}
+                                                    @method('put')
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                    <input type="text" class="form-control" id="name" placeholder="position" name="position">
+                                                                    <input type="text" class="form-control" id="position" placeholder="campany" name="campany" value="">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <div class="input-group input-group-outline my-3">
-                                                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                                                                <div class="input-group input-group-outline my-3 ">
+                                                                    <input type="text" class="form-control" id="position" placeholder="position" name="position_designation" value="">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -109,7 +111,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="Phone" name="Phone number">
+                                                                <input type="text" class="form-control" id="subject" placeholder="year" name="year" value="">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -118,7 +120,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="website" name="website">
+                                                                <input type="text" class="form-control" id="subject" placeholder="address" name="address" >
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
@@ -127,7 +129,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                             <div class="input-group input-group-outline my-3">
-                                                                <textarea class="form-control" rows="8" id="comment" placeholder="Decription" ></textarea>
+                                                                <textarea class="form-control" rows="10" id="comment" placeholder="Decription" name="description"  ></textarea>
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
@@ -135,10 +137,18 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="single-contact-btn">
-                                                    <button class="btn bg-gradient-primary" href="#" role="button">Create About</button>
+                                                    <button type="submit" class="btn bg-gradient-primary" name="update" id="update" role="button">Add About</button>
                                                 </div> <!--/.single-single-contact-btn-->
                                             </div><!--/.col-->
-                                        </div><!--/.row-->
+                                        </div><!--/ul--><!--/.row-->
+                                                {{-- <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="single-contact-btn">
+                                                            <button class="btn btn-default float-right" href="#" role="button">Cancel</button>
+                                                        </div> <!--/.single-single-contact-btn-->
+                                                </div><!--/.col-->
+                                            </div><!--/.row--> --}}
+                                        {{-- </div> --}}
                                     </form><!--/form-->
                                 </div><!--/.contact-form-->
                             </div><!--/.single-contact-box-->
