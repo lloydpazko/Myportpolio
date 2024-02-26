@@ -78,6 +78,20 @@ Route::group(['middleware' => 'admin'], function(){
 
     // end function for skills pages
 
+    // preview index page
+
+    Route::get('admin/preview-indexpages', [DashboardController::class, 'preview']);
+
+    Route::get('admin/preview-create-indexpages', [DashboardController::class, 'create_index']);
+
+    Route::post('admin/preview-insert-newindex-view', [DashboardController::class, 'create_new_index_view']);
+
+    Route::get('admin/preview-edit-indexpages', [DashboardController::class, 'edit_index_view']);
+
+    route::put('admin/preview-update-indexpages', [DashboardController::class, 'update_index_view']);
+
+    // end index page
+
 });
 
 Route::get('/', [HomeController::class, 'index']);

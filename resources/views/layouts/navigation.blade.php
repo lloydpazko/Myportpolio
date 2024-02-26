@@ -49,9 +49,11 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="header-text">
-							<h2>hi <span>,</span> i am <br> lloyd <br> Paliuanan <span>.</span>   </h2>
-							<p>ui/ux designer and web developer</p>
-							<a href="assets/download/browney.txt" download>download resume</a>
+							<h2>hi <span>,</span> i am <br> {{ $get_banner[0]->name }} <span>.</span>   </h2>
+							<p>{{ $get_banner[0]->dev }}</p>
+                            @if( $get_banner[0]->resume)
+							<a href="{{ url('admincss/assets/images/'.@$get_banner[0]->resume) }}" download>download resume</a>
+                            @endif
 						</div><!--/.header-text-->
 					</div><!--/.col-->
 				</div><!-- /.row-->

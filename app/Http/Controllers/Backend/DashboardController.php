@@ -9,6 +9,7 @@ use App\Models\About;
 use App\Models\Experience;
 use App\Models\Skill;
 use App\Models\education;
+use App\Models\banner;
 use Str;
 use Session;
 use Illuminate\View\View;
@@ -177,5 +178,37 @@ class DashboardController extends Controller
         $update_exp->update();
 
         return redirect()->back()->with('success', "Your Experience was updated successfully");
+    }
+    public function preview()
+    {
+        return view('admin-portfolio.backend.dashboard.indexpagespreview');
+    }
+    public function create_index(request $request)
+    {
+        return view('admin-portfolio.backend.dashboard.create-banner');
+    }
+    public function create_new_index_view(request $request)
+    {
+        $insertbanner = new banner;
+        $insertbanner->name = trim($request->name);
+        $insertbanner->dev = trim($request->dev);
+
+        if(!empty($request->file('resume'))){
+           $file        = $request->file('resume');
+           $randomStr   = Str::random(30);
+           $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
+           $file->move('admincss/assets/images', $filename);
+           $insertbanner->resume = $filename;
+        }
+        // if(!empty($request->file('imagewelcome'))){
+        //     $file        = $request->file('imagewelcome');
+        //     $randomStr   = Str::random(30);
+        //     $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
+        //     $file->move('assets/images/about', $filename);
+        //     $insertbanner->imagewelcome = $filename;
+        //  }
+        $insertbanner->save();
+
+        return redirect('admin/preview-indexpages');
     }
 }

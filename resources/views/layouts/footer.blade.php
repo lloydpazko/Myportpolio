@@ -3,7 +3,7 @@
     <div class="container">
         <div class="hm-footer-copyright text-center">
             <p>
-                &copy; copyright yourname. design and developed by <a href="https://www.themesine.com/">themesine</a>
+                &copy; copyright My Professional Portfolio. design and developed by <a href="https://www.themesine.com/">Lloyd Paliuanan</a>
             </p>
         </div>
     </div>
