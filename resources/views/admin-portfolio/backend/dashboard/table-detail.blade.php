@@ -199,7 +199,7 @@
                             <span class="text-secondary text-xs font-weight-bold">{{ $getrecord2->description }}</span>
                           </td>
                         <td class="align-middle">
-                          <a href="{{ url('admin/edit-experience/' . $getrecord->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          <a href="{{ url('admin/edit-experience/' . $getrecord2->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                             Edit
                           </a>
                         </td>
@@ -258,7 +258,7 @@
                       <span class="text-secondary text-xs font-weight-bold">{{ $getrecord4->description }}</span>
                     </td>
                     <td class="align-middle">
-                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                      <a href="{{ url('admin/edit-education/' . $getrecord4->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                         Edit
                       </a>
                     </td>

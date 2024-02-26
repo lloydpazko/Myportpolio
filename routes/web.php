@@ -49,15 +49,23 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::post('admin/create-exprience', [DashboardController::class, 'create_experience']);
 
-    Route::get('admin/edit-experience/{id}', [DashboardController::class, 'edit_experience']);
+    Route::get('admin/edit-experience/{id}', [DashboardController::class, 'edit_exp']);
 
     Route::put('admin/edit-experience-update/{id}', [DashboardController::class, 'edit_update_exp']);
 
     // end Experience pages
 
+    // education pages
 
     Route::get('admin/education', [DashboardController::class, 'education']);
+
     Route::post('admin/create-education', [DashboardController::class, 'create_education']);
+
+    Route::get('admin/edit-education/{id}', [DashboardController::class, 'edit_education']);
+
+    Route::put('admin/edit-education-update/{id}', [DashboardController::class, 'update_education']);
+
+    // end education pages
 
     // Skill pages Create and edit pages
     Route::get('admin/create-skill', [DashboardController::class, 'create_skill']);

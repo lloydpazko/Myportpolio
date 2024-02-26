@@ -74,7 +74,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">About You Personal</h6>
+                <h6 class="text-white text-capitalize ps-3">Experience</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -88,21 +88,21 @@
                                         <div class="single-contact-box">
                                             <div class="contact-form">
                                                 @include('_messages')
-                                                <form action="{{ url('admin/edit-experience-update/' . $data3->id) }}" method="post" enctype="multipart/form-data" >
+                                                <form action="{{ url('admin/edit-experience-update/' . $Experience->id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     @method('put')
                                                     <div class="row">
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                    <input type="text" class="form-control" id="position" placeholder="campany" name="campany" value="">
+                                                                    <input type="text" class="form-control" id="position" placeholder="campany" name="campany" value="{{ $Experience->campany }}">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
                                                         <div class="col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3 ">
-                                                                    <input type="text" class="form-control" id="position" placeholder="position" name="position_designation" value="">
+                                                                    <input type="text" class="form-control" id="position" placeholder="position" name="position_designation" value="{{ $Experience->position_designation }}">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -111,7 +111,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="year" name="year" value="">
+                                                                <input type="text" class="form-control" id="subject" placeholder="year" name="year" value="{{ $Experience->year }}">
                                                                 </div>
                                                             </div><!--/.form-group-->
                                                         </div><!--/.col-->
@@ -120,7 +120,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
-                                                                <input type="text" class="form-control" id="subject" placeholder="address" name="address" >
+                                                                <input type="text" class="form-control" id="subject" placeholder="address" name="address" value="{{ $Experience->address }}">
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
@@ -129,7 +129,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
                                                             <div class="input-group input-group-outline my-3">
-                                                                <textarea class="form-control" rows="10" id="comment" placeholder="Decription" name="description"  ></textarea>
+                                                                <textarea class="form-control" rows="10" id="comment" placeholder="Decription" name="description" >{{ $Experience->description }}</textarea>
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->

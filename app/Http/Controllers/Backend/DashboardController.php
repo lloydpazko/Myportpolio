@@ -19,7 +19,7 @@ class DashboardController extends Controller
     {
         return view('admin-portfolio.backend.dashboard.list');
     }
-    public function tables(request $request): View
+    public function tables(request $request)
     {
         $data ['getrecord'] = About::all();
         $data ['getrecord2'] = Experience::all();
@@ -116,6 +116,23 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', "Your School history was Added successfully");
     }
+    public function edit_education(request $request , $id)
+    {
+        $education = education::find($id);
+        return view('admin-portfolio.backend.dashboard.edit-education', compact('education'));
+    }
+    public function update_education(request $request , $id)
+    {
+        $update_education = education::find($id);
+        $update_education->year = $request->year;
+        $update_education->course = $request->course;
+        $update_education->school = $request->school;
+        $update_education->address = $request->address;
+        $update_education->description = $request->description;
+        $update_education->update();
+
+        return redirect()->back()->with('success', "Your education history was updated successfully");
+    }
     public function create_skill_store(request $request)
     {
         $insertrecordskill = new Skill;
@@ -142,19 +159,21 @@ class DashboardController extends Controller
         $update_data->update();
         return redirect()->back()->with('success', "Your skill history was updated successfully");
     }
-    public function edit_experience(request $request, $id)
+    public function edit_exp(request $request)
     {
-        // $data3 = Experience::find($id);
-        // return view('admin-portfolio.backend.dashboard.edit-exprience', compact('data3'));
+        $Experience = Experience::find($request->id);
+        return view('admin-portfolio.backend.dashboard.edit-exprience', compact('Experience'));
     }
-    public function edit_update_exp(request $request, $id)
+    public function edit_update_exp(request $request , $id)
     {
         $update_exp = Experience::find($id);
+
         $update_exp->campany = $request->campany;
         $update_exp->position_designation = $request->position_designation;
         $update_exp->year = $request->year;
         $update_exp->address = $request->address;
         $update_exp->description = $request->description;
+
         $update_exp->update();
 
         return redirect()->back()->with('success', "Your Experience was updated successfully");
