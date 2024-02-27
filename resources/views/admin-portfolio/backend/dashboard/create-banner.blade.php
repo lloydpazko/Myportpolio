@@ -130,12 +130,12 @@
                                                         <div class="form-group">
                                                                 <div class="input-group input-group-outline my-3">
                                                                     <label class="col-sm-3 col-form-label">banner images</label>
-                                                                <input type="file" class="form-control" id="subject" placeholder="banner images" name="imagewelcome">
+                                                                <input type="file" class="form-control" id="subject" placeholder="banner images" name="welcomeimages">
                                                             </div>
                                                         </div><!--/.form-group-->
                                                     </div><!--/.col-->
                                                 </div><!--/.row--> --}}
-                                            {{-- <div class="card-footer"> --}}
+                                            <div class="card-footer">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <div class="single-contact-btn">
@@ -149,7 +149,7 @@
                                                             <button class="btn btn-default float-right" href="#" role="button">Cancel</button>
                                                         </div> <!--/.single-single-contact-btn-->
                                                 </div><!--/.col-->
-                                            </div><!--/.row--> --}}
+                                            </div><!--/.row-->
                                         {{-- </div> --}}
                                     </form><!--/form-->
                                 </div><!--/.contact-form-->

@@ -65,4 +65,9 @@ class AuthController extends Controller
                 return redirect()->back()->with('error', 'email id not found!');
         }
     }
+    // public function logout()
+    // {
+    //     Auth::guard('web')->logout();
+    //     return redirect('/');
+    // }
 }

@@ -44,6 +44,7 @@
         <![endif]-->
 
 		<!--welcome-hero start -->
+
 		<section id="welcome-hero" class="welcome-hero">
 			<div class="container">
 				<div class="row">
@@ -54,10 +55,10 @@
                             @if( $get_banner[0]->resume)
 							<a href="{{ url('admincss/assets/images/'.@$get_banner[0]->resume) }}" download>download resume</a>
                             @endif
+
 						</div><!--/.header-text-->
 					</div><!--/.col-->
 				</div><!-- /.row-->
 			</div><!-- /.container-->
-
 		</section><!--/.welcome-hero-->
 		<!--welcome-hero end -->

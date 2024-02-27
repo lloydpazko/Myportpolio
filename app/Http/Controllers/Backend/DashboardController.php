@@ -45,7 +45,7 @@ class DashboardController extends Controller
            $file        = $request->file('profile');
            $randomStr   = Str::random(30);
            $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
-           $file->move('admincss/assets/img', $filename);
+           $file->move('admincss/assets/images', $filename);
            $insertRecord->profile = $filename;
         }
         $insertRecord->save();
@@ -69,14 +69,14 @@ class DashboardController extends Controller
 
             if(!empty($request->file('profile'))){
 
-                if(!empty($insertRecord->profile) && file_exists('admincss/assets/img'. $insertRecord->profile))
+                if(!empty($insertRecord->profile) && file_exists('admincss/assets/images'. $insertRecord->profile))
                 {
-                    unlink('admincss/assets/img'. $insertRecord->profile);
+                    unlink('admincss/assets/images'. $insertRecord->profile);
                 }
             $file        = $request->file('profile');
             $randomStr   = Str::random(30);
             $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
-            $file->move('admincss/assets/img', $filename);
+            $file->move('admincss/assets/images', $filename);
             $insertRecord->profile = $filename;
             }
             $insertRecord->update();
@@ -181,7 +181,8 @@ class DashboardController extends Controller
     }
     public function preview()
     {
-        return view('admin-portfolio.backend.dashboard.indexpagespreview');
+        $banner ['get_bannerpreview'] = Banner::all();
+        return view('admin-portfolio.backend.dashboard.indexpagespreview' , $banner);
     }
     public function create_index(request $request)
     {
@@ -200,15 +201,43 @@ class DashboardController extends Controller
            $file->move('admincss/assets/images', $filename);
            $insertbanner->resume = $filename;
         }
-        // if(!empty($request->file('imagewelcome'))){
-        //     $file        = $request->file('imagewelcome');
+        // if(!empty($request->file('welcomeimages'))){
+        //     $file        = $request->file('welcomeimages');
         //     $randomStr   = Str::random(30);
         //     $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
         //     $file->move('assets/images/about', $filename);
-        //     $insertbanner->imagewelcome = $filename;
+        //     $insertbanner->welcomeimages = $filename;
         //  }
         $insertbanner->save();
 
+        return redirect('admin/preview-indexpages');
+    }
+    public function edit_index_view(request $request, $id)
+    {
+        $get_bannerdata = Banner::find($id);
+        return view('admin-portfolio.backend.dashboard.edit-banner-resume', compact('get_bannerdata'));
+    }
+    public function update_index_view(request $request, $id)
+    {
+        $update = banner::find($id);
+
+        $update->name = $request->name;
+        $update->dev = $request->dev;
+
+
+            if(!empty($request->file('resume'))){
+
+                if(!empty($update->resume) && file_exists('admincss/assets/images'. $update->resume))
+                {
+                    unlink('admincss/assets/images'. $update->resume);
+                }
+            $file        = $request->file('resume');
+            $randomStr   = Str::random(30);
+            $filename    = $randomStr . '.' . $file->getClientOriginalExtension();
+            $file->move('admincss/assets/images', $filename);
+            $update->resume = $filename;
+            }
+            $update->update();
         return redirect('admin/preview-indexpages');
     }
 }

@@ -27,6 +27,7 @@ Route::group(['middleware' => 'admin'], function(){
     // dashboard pages
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/table-details', [DashboardController::class, 'tables']);
+    Route::post('logout', [AuthController::class, 'logout']);
     // end dashboard pages
 
 
@@ -86,9 +87,9 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::post('admin/preview-insert-newindex-view', [DashboardController::class, 'create_new_index_view']);
 
-    Route::get('admin/preview-edit-indexpages', [DashboardController::class, 'edit_index_view']);
+    Route::get('admin/preview-edit-indexpages/{id}', [DashboardController::class, 'edit_index_view']);
 
-    route::put('admin/preview-update-indexpages', [DashboardController::class, 'update_index_view']);
+    route::put('admin/preview-update-indexpages/{id}', [DashboardController::class, 'update_index_view']);
 
     // end index page
 

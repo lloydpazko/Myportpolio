@@ -9,6 +9,7 @@ class Banner extends Model
 {
     protected $table = 'banner';
     protected $primaryKey = 'id';
+    // protected $fillable = ['welcomeimages','resume', 'name', 'dev'];
     protected $fillable = ['resume', 'name', 'dev'];
     use HasFactory;
 }

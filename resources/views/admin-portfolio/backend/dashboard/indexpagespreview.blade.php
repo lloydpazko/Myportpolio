@@ -91,7 +91,7 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <a class="text-white text-capitalize ps-3" href="{{ url('admin/preview-create-indexpages') }}">preview index pages</a>
-                <a class="text-white text-capitalize ps-3" href="{{ url('') }}">edit index pages</a>
+                <a class="text-white text-capitalize ps-3" href="{{ url('admin/preview-edit-indexpages/' . $get_bannerpreview[0]->id) }}">edit index pages</a>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -112,9 +112,9 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="header-text">
-                                            <h2>hi <span>,</span> i am <br> lloyd <br> Paliuanan <span>.</span>   </h2>
-                                            <p>ui/ux designer and web developer</p>
-                                            <a href="assets/download/browney.txt" download>download resume</a>
+                                            <h2>hi <span>,</span> i am <br> {{ $get_bannerpreview[0]->name }} <span>.</span>   </h2>
+                                            <p>{{ $get_bannerpreview[0]->dev }}</p>
+                                            <a href="{{ $get_bannerpreview[0]->resume }}" download>download resume</a>
                                         </div><!--/.header-text-->
                                     </div><!--/.col-->
                                 </div><!-- /.row-->
