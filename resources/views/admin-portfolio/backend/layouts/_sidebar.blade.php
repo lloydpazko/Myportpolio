@@ -113,8 +113,8 @@
             <form action="{{ url('logout') }}" method="post">
                 @csrf
                 @method('post')
-            <a href="{{ url('/') }}" method="post" class="nav-link text-body font-weight-bold px-0">
-              <i class="fa fa-user me-sm-1"></i>
+                <i class="fa fa-user me-sm-1"></i>
+            <a href="{{ url('logout') }}">
               <span class="d-sm-inline d-none">logout</span>
             </a>
         </form>

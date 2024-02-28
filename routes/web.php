@@ -27,7 +27,7 @@ Route::group(['middleware' => 'admin'], function(){
     // dashboard pages
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/table-details', [DashboardController::class, 'tables']);
-    Route::post('logout', [AuthController::class, 'logout']);
+    Route::get('logout', [AuthController::class, 'logout']);
     // end dashboard pages
 
 
