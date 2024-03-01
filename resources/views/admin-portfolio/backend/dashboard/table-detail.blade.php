@@ -89,7 +89,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">About Me</h6>
+                <a href="{{ url('admin/create-about') }}" class="text-white text-capitalize ps-3">About Me</a>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -115,7 +115,7 @@
                         <div class="d-flex px-2 py-1">
                           <div>
                             @if($getrecord->profile)
-                            <img src="{{ asset('admincss/assets/img/' .$getrecord->profile) }} " class="avatar avatar-sm me-3 border-radius-lg" alt="user5">
+                            <img src="{{ asset('admincss/assets/images/' .$getrecord->profile) }} " class="avatar avatar-sm me-3 border-radius-lg" alt="user5">
                             @endif
                           </div>
                           <div class="d-flex flex-column justify-content-center">
@@ -148,15 +148,13 @@
                         </a>
                       </td>
                       <td class="align-middle">
-                        <form action="{{ url('') }}" method="post">
+                        {{-- <form action="{{ url('admin/delete-table-detail/' .$getrecord->id) }}" method="post">
                             @csrf
-                            @method('DELETE')
-                        {{-- <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            @method('delete') --}}
+                        <a href="{{ url('admin/delete-about-detail/' .$getrecord->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                           delete
-                        </a> --}}
-
-                        <button type="submit" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" title="Delete about" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                    </form>
+                        </a>
+                    {{-- </form> --}}
                       </td>
                     </tr>
                   </tbody>
@@ -190,6 +188,8 @@
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">description</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
                         <th class="text-secondary opacity-7"></th>
+                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-secondary opacity-7"></th>
                       </tr>
                     </thead>
                     @foreach($getrecord2 as $getrecord2)
@@ -218,6 +218,15 @@
                             Edit
                           </a>
                         </td>
+                        <td class="align-middle">
+                            {{-- <form action="{{ url('admin/delete-table-detail/' .$getrecord->id) }}" method="post">
+                                @csrf
+                                @method('delete') --}}
+                            <a href="{{ url('admin/delete-experience-detail/' .$getrecord2->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                              delete
+                            </a>
+                        {{-- </form> --}}
+                          </td>
                       </tr>
                     </tbody>
                     @endforeach
@@ -277,6 +286,15 @@
                         Edit
                       </a>
                     </td>
+                    <td class="align-middle">
+                        {{-- <form action="{{ url('admin/delete-table-detail/' .$getrecord->id) }}" method="post">
+                            @csrf
+                            @method('delete') --}}
+                        <a href="{{ url('admin/delete-education-detail/' .$getrecord4->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          delete
+                        </a>
+                    {{-- </form> --}}
+                      </td>
                   </tr>
                 </tbody>
                 @endforeach
@@ -326,6 +344,15 @@
                         Edit
                       </a>
                     </td>
+                    <td class="align-middle">
+                        {{-- <form action="{{ url('admin/delete-table-detail/' .$getrecord->id) }}" method="post">
+                            @csrf
+                            @method('delete') --}}
+                        <a href="{{ url('admin/delete-skill-detail/' .$getrecord3->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          delete
+                        </a>
+                    {{-- </form> --}}
+                      </td>
                   </tr>
                   @endforeach
                 </tbody>

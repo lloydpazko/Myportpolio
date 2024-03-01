@@ -40,7 +40,7 @@
 						<div class="col-sm-offset-1 col-sm-5">
 							<div class="single-about-img">
                                 @if(@$getrecord[0]->profile)
-                            <img src="{{ url('admincss/assets/img/'.@$getrecord[0]->profile) }}" alt="profile_image"/>
+                            <img src="{{ url('admincss/assets/images/'.@$getrecord[0]->profile) }}" alt="profile_image"/>
                                 @endif
 								<div class="about-list-icon">
 									<ul>

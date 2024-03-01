@@ -240,4 +240,36 @@ class DashboardController extends Controller
             $update->update();
         return redirect('admin/preview-indexpages');
     }
+    public function preview_portfolio()
+    {
+        return view('admin-portfolio.backend.portfolio.preview-portfolio');
+    }
+    public function destroy(request $request , $id)
+    {
+        $delete = About::find($id);
+        $delete->delete();
+
+        return redirect('/admin/table-details');
+    }
+    public function destroy_experience(request $request , $id)
+    {
+        $delete2 = Experience::find($id);
+        $delete2->delete();
+
+        return redirect('/admin/table-details');
+    }
+    public function destroy_skill(request $request , $id)
+    {
+        $delete = Skill::find($id);
+        $delete->delete();
+
+        return redirect('/admin/table-details');
+    }
+    public function destroy_education(request $request , $id)
+    {
+        $delete = education::find($id);
+        $delete->delete();
+
+        return redirect('/admin/table-details');
+    }
 }

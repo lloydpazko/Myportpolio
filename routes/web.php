@@ -40,9 +40,6 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::PUT('admin/edit-about-details-update/{id}', [DashboardController::class, 'edit_about_update']);
 
-    Route::delete('admin/about-delete', [DashboardController::class, 'destroy_about']);
-    // Route::post('/', [DashboardController::class, 'logout']);
-
     // end about pages
 
     // Experience pages
@@ -92,6 +89,34 @@ Route::group(['middleware' => 'admin'], function(){
     route::put('admin/preview-update-indexpages/{id}', [DashboardController::class, 'update_index_view']);
 
     // end index page
+
+    // preview portfolio pages
+
+    Route::get('admin/preview-portfolio', [DashboardController::class, 'preview_portfolio']);
+
+    Route::get('admin/preview-portfolio-create-portfolio', [DashboardController::class, 'create_portfolio_index']);
+
+    Route::post('admin/preview-portfolio-create-portfolio-newindex-view', [DashboardController::class, 'create_portfolio_new_index']);
+
+    Route::get('admin/preview-portfolio-edit-portfolio/{id}', [DashboardController::class, 'edit_portfolio_index']);
+
+    Route::put('admin/preview-portfolio-update-portfolio/{id]', [DashboardController::class, 'update_portfolio_index']);
+
+    // function for delete of about
+    Route::get('admin/delete-about-detail/{id}', [DashboardController::class, 'destroy']);
+    // end delete table detail
+
+       // function for delete of experience
+       Route::get('admin/delete-experience-detail/{id}', [DashboardController::class, 'destroy_experience']);
+       // end delete table detail
+
+       // function for delete of skill
+       Route::get('admin/delete-skill-detail/{id}', [DashboardController::class, 'destroy_skill']);
+       // end delete table detail
+
+       // function for delete of education
+       Route::get('admin/delete-education-detail/{id}', [DashboardController::class, 'destroy_education']);
+       // end delete table detail
 
 });
 

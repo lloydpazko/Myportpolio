@@ -90,8 +90,8 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <a class="text-white text-capitalize ps-3" href="{{ url('admin/preview-create-indexpages') }}">preview index pages</a>
-                <a class="text-white text-capitalize ps-3" href="{{ url('admin/preview-edit-indexpages/' . $get_bannerpreview[0]->id) }}">edit index pages</a>
+                <a class="text-white text-capitalize ps-3" href="{{ url('admin/preview-create-portfolio') }}">preview protfolio</a>
+                <a class="text-white text-capitalize ps-3" href="">edit portfolio pages</a>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -104,25 +104,73 @@
 
                 <!--responsive.css-->
                 <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css') }}">
-                <header class="top-area">
-                    <div class="header-area">
-                        <!--welcome-hero start -->
-                        <section id="welcome-hero" class="welcome-hero">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <div class="header-text">
-                                            <h2>hi <span>,</span> i am <br> {{ $get_bannerpreview[0]->name }} <span>.</span>   </h2>
-                                            <p>{{ $get_bannerpreview[0]->dev }}</p>
-                                            <a href="{{ $get_bannerpreview[0]->resume }}" download>download resume</a>
-                                        </div><!--/.header-text-->
-                                    </div><!--/.col-->
-                                </div><!-- /.row-->
-                            </div><!-- /.container-->
+                {{-- insert preview section here --}}
 
-                        </section><!--/.welcome-hero-->
-                        <!--welcome-hero end -->
-                    </header>
+                <section id="portfolio" class="portfolio">
+                    <div class="portfolio-details">
+                        <div class="section-heading text-center">
+                            <h2>portfolio</h2>
+                        </div>
+                        <div class="container">
+                            <div class="portfolio-content">
+                                <div class="isotope">
+                                    <div class="row">
+
+                                        <div class="col-sm-4">
+                                            <div class="item">
+                                                <img src="{{ asset('assets/images/portfolio/p1.jpg') }}"alt="portfolio image"/>
+                                                <div class="isotope-overlay">
+                                                    <a href="#">
+                                                        ui/ux design
+                                                    </a>
+                                                </div><!-- /.isotope-overlay -->
+                                            </div><!-- /.item -->
+                                            <div class="item">
+                                                <img src="{{ asset('assets/images/portfolio/p2.jpg') }}" alt="portfolio image"/>
+                                                <div class="isotope-overlay">
+                                                    <a href="#">
+                                                        ui/ux design
+                                                    </a>
+                                                </div><!-- /.isotope-overlay -->
+                                            </div><!-- /.item -->
+                                        </div><!-- /.col -->
+
+                                        <div class="col-sm-4">
+                                            <div class="item">
+                                                <img src="{{ asset('assets/images/portfolio/p3.jpg') }}" alt="portfolio image"/>
+                                                <div class="isotope-overlay">
+                                                    <a href="#">
+                                                        web design
+                                                    </a>
+                                                </div><!-- /.isotope-overlay -->
+                                            </div><!-- /.item -->
+                                        </div><!-- /.col -->
+
+                                        <div class="col-sm-4">
+                                            <div class="item">
+                                                <img src="{{ asset('assets/images/portfolio/p4.jpg') }}" alt="portfolio image"/>
+                                                <div class="isotope-overlay">
+                                                    <a href="#">
+                                                        web development
+                                                    </a>
+                                                </div><!-- /.isotope-overlay -->
+                                            </div><!-- /.item -->
+                                            <div class="item">
+                                                <img src="{{ asset('assets/images/portfolio/p5.jpg') }}" alt="portfolio image"/>
+                                                <div class="isotope-overlay">
+                                                    <a href="#">
+                                                        web development
+                                                    </a>
+                                                </div><!-- /.isotope-overlay -->
+                                            </div><!-- /.item -->
+                                        </div><!-- /.col -->
+                                    </div><!-- /.row -->
+                                </div><!--/.isotope-->
+                            </div><!--/.gallery-content-->
+                        </div><!--/.container-->
+                    </div><!--/.portfolio-details-->
+
+                </section><!--/.portfolio-->
               </div>
             </div>
           </div>
